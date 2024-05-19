@@ -21,7 +21,8 @@ function Login() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        credentials:"include"
       });
 
       const responseData = await response.json();
@@ -31,7 +32,10 @@ function Login() {
       }
 
       console.log(responseData);
-      dispatch(login({userData: responseData}))
+      dispatch(login({userData: responseData.user}))
+      // sessionStorage.setItem('accessToken', responseData.accessToken);
+      // sessionStorage.setItem('refreshToken', responseData.refreshToken);
+
       navigate("/home")
       // Save token to local storage or state for future requests
       

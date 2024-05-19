@@ -9,6 +9,8 @@ function TaskForm() {
   const { control, handleSubmit, register, formState: { errors } } = useForm();
   const [error, setError] = useState("");
   const dispatch = useDispatch()
+  
+//   const accessToken  = sessionStorage.getItem('accessToken')
 
   const onSubmit = async data => {
     console.log(data)
@@ -25,7 +27,8 @@ function TaskForm() {
       const response = await fetch('http://localhost:4909/records/addTask', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+        //   'Authorization': `Bearer :${accessToken}`
         },
         body: JSON.stringify(record)
       });

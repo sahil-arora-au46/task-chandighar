@@ -106,15 +106,15 @@ try {
     
     res.status(200).cookie("accessToken",accessToken,{
         httpOnly: true,
-        secure: true,
-        sameSite: 'None',
+        // secure: true,
+        // sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
         
     }).cookie("refreshToken",refreshToken,{
         httpOnly: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, 
-        secure: true,
-        sameSite: 'None',
+        // secure: true,
+        // sameSite: 'None',
     }).json( {
         user: loggedInUser, accessToken, refreshToken
     })
@@ -144,9 +144,9 @@ async function logout(req,res){
     )
 
     const options = {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'None',
+        // httpOnly: true,
+        // secure: true,
+        // sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
         // path:"/"
     }
