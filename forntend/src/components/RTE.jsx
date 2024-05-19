@@ -4,9 +4,10 @@ import {Controller } from 'react-hook-form';
 
 
 // eslint-disable-next-line react/prop-types
-export default function RTE({name, control, label, defaultValue ="",height=200 ,disable=false}) {
+export default function RTE({name, control, label, defaultValue ="",height=200 ,disable=false, toolbar=true, width = "w-full"}) {
+  const tools = "undo redo | fontfamily fontsize | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat |  spellcheckdialog a11ycheck typography | help"
   return (
-    <div className='w-full'> 
+    <div className={width}> 
     {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
 
     <Controller
@@ -22,10 +23,7 @@ export default function RTE({name, control, label, defaultValue ="",height=200 ,
             height: height,
             statusbar: false,
             menubar: false,
-            plugins: [
-            ],
-            toolbar:
-            "undo redo | fontfamily fontsize | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat |  spellcheckdialog a11ycheck typography | help",
+            toolbar: toolbar ? tools : false,
             content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
         }}
         onEditorChange={onChange}

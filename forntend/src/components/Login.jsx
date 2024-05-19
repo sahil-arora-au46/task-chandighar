@@ -33,8 +33,7 @@ function Login() {
 
       console.log(responseData);
       dispatch(login({userData: responseData.user}))
-      // sessionStorage.setItem('accessToken', responseData.accessToken);
-      // sessionStorage.setItem('refreshToken', responseData.refreshToken);
+     
 
       navigate("/home")
       // Save token to local storage or state for future requests

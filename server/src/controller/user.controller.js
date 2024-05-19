@@ -70,7 +70,6 @@ async function login(req,res){
 try {
     const {userName,email,password} = req.body;
     
-    console.log(userName,email,password,"checking ")
     
     
     if(!userName && !email){
@@ -92,7 +91,6 @@ try {
     const isPasswordCorrect = await user.isPasswordCorrect(password)
     
     
-    console.log(isPasswordCorrect,"checking password")
     
     
     if(!isPasswordCorrect){
