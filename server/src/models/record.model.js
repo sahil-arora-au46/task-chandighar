@@ -11,7 +11,7 @@ const recordSchema = new Schema({
     },
     estimates:[{
         estimatedTime:{
-            type:Number,
+            type:String,
             required:true,
             
         },

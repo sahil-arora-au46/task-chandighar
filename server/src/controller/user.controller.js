@@ -102,16 +102,19 @@ try {
     const [accessToken,refreshToken] = await generateAccessAndRefreshToken(user._id)
     
     
-    const loggedInUser = await userModel.findById(user._id)
+    const loggedInUser = await userModel.findById(user._id).select("-password -refreshToken -records")
     
     res.status(200).cookie("accessToken",accessToken,{
         httpOnly: true,
+        secure: true,
+        sameSite: 'None',
         maxAge: 24 * 60 * 60 * 1000,
-        secure : true
+        
     }).cookie("refreshToken",refreshToken,{
         httpOnly: true,
         maxAge: 30 * 24 * 60 * 60 * 1000, 
-        secure : true
+        secure: true,
+        sameSite: 'None',
     }).json( {
         user: loggedInUser, accessToken, refreshToken
     })
@@ -142,13 +145,16 @@ async function logout(req,res){
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: true,
+        sameSite: 'None',
+        maxAge: 24 * 60 * 60 * 1000,
+        // path:"/"
     }
 
     return res
-    .status(200)
     .clearCookie("accessToken", options)
     .clearCookie("refreshToken", options)
+    .status(200)
     .json(new ApiResponse(200, {}, "User logged Out"))
 
 

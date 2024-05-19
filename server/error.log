@@ -58,3 +58,43 @@ Use mongoose.model(name, schema)
 2024-05-18T12:32:14.785Z: ValidationError: taskNumber: Path `taskNumber` is invalid (b5).
 2024-05-18T12:32:32.960Z: ValidationError: taskNumber: Path `taskNumber` is invalid (f5).
 2024-05-18T12:34:06.936Z: ValidationError: taskNumber: Path `taskNumber` is invalid (5).
+2024-05-19T05:41:21.534Z: Error: User not found
+2024-05-19T05:41:22.723Z: Error: User not found
+2024-05-19T05:43:40.863Z: Error: User not found
+2024-05-19T05:44:12.977Z: Error: User not found
+2024-05-19T05:44:39.579Z: Error: User not found
+2024-05-19T05:45:44.087Z: Error: User not found
+2024-05-19T05:46:23.914Z: Error: User not found
+2024-05-19T05:47:43.926Z: Error: User not found
+2024-05-19T05:49:43.003Z: Error: User not found
+2024-05-19T05:50:52.539Z: Error: User not found
+2024-05-19T05:51:28.641Z: Error: User not found
+2024-05-19T05:51:51.714Z: Error: User not found
+2024-05-19T05:52:34.298Z: Error: User not found
+2024-05-19T05:52:35.737Z: Error: User not found
+2024-05-19T05:52:36.320Z: Error: User not found
+2024-05-19T05:52:36.493Z: Error: User not found
+2024-05-19T05:52:36.819Z: Error: User not found
+2024-05-19T05:52:36.979Z: Error: User not found
+2024-05-19T05:52:37.183Z: Error: User not found
+2024-05-19T05:52:37.369Z: Error: User not found
+2024-05-19T05:52:37.522Z: Error: User not found
+2024-05-19T05:53:03.152Z: Error: User not found
+2024-05-19T05:53:23.119Z: Error: User not found
+2024-05-19T05:53:25.233Z: Error: User not found
+2024-05-19T05:53:47.788Z: Error: User not found
+2024-05-19T05:55:21.279Z: Error: User not found
+2024-05-19T05:55:23.085Z: Error: User not found
+2024-05-19T05:55:25.453Z: Error: User not found
+2024-05-19T06:10:04.827Z: Error: User not found
+2024-05-19T06:10:08.842Z: Error: User not found
+2024-05-19T06:10:28.045Z: Error: Invalid user credentials
+2024-05-19T06:53:21.341Z: MongoServerError: E11000 duplicate key error collection: TaskRecords.users index: userName_1 dup key: { userName: "sahil1" }
+2024-05-19T06:53:32.675Z: Error: User with email or username already exists
+2024-05-19T14:16:56.338Z: Error: userName or email required
+2024-05-19T15:31:34.514Z: Error: Unauthorized request
+2024-05-19T15:32:55.419Z: Error: Unauthorized request
+2024-05-19T15:42:32.955Z: Error: Unauthorized request
+2024-05-19T15:45:13.664Z: Error: Unauthorized request
+2024-05-19T15:52:16.664Z: Error: Unauthorized request
+2024-05-19T15:59:01.411Z: Error: Unauthorized request

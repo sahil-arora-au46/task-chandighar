@@ -12,7 +12,10 @@ var app = express();
 var cors = require('cors')
 
 app.use(cookieParser());
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:5174',
+    credentials: true // This allows cookies to be included in cross-origin requests
+}))
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

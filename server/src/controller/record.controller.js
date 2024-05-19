@@ -36,7 +36,7 @@ try {
 async function addTask(req,res){
 
     try {
-        console.log("in addtask")
+        
         const {taskNumber,estimates,notes}  = req.body;
         
         if(taskNumber=="" || notes=="" || !estimates.estimatedTime){
