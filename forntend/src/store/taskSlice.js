@@ -15,10 +15,10 @@ const recordSlice = createSlice({
             state.records.push(action.payload)
         },
         updateRecord: (state, action) => {
-            const { id, updatedData } = action.payload;
-            const index = state.records.findIndex(record => record.id === id);
+            const   updatedData  = action.payload;
+            const index = state.records.findIndex(record => record._id === updatedData._id);
             if (index !== -1) {
-                state.records[index] = { ...state.records[index], ...updatedData };
+                state.records[index] = updatedData;
             }
         },
 

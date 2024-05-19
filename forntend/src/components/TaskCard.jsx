@@ -2,12 +2,16 @@ import React from 'react';
 // import { useSelector } from 'react-redux';
 import RTE from './RTE';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 function TaskCard({task}) {
   const { control } = useForm();
-  
-  console.log(task,"from card")
+  const navigate = useNavigate();
+
+  const editHandler=()=>{
+    navigate(`/edit-task?taskId=${task._id}`)
+  }
   return (
 <>
 <div className='h-80 w-80 border-2 border-black  ml-8 mt-8 mr-8'>
@@ -27,7 +31,7 @@ function TaskCard({task}) {
        })}
       </div>
       <button  className='mt-2 ml-2 border border-black rounded-md p-1 bg-blue-400'>completed</button>
-      <button  className='mt-2 ml-2 border border-black rounded-md p-1 bg-blue-400'>Edit</button>
+      <button  onClick={editHandler} className='mt-2 ml-2 border border-black rounded-md p-1 bg-blue-400'>Edit</button>
     </div>
     
 </>

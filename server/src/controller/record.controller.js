@@ -11,7 +11,6 @@ async function getAllTask(req,res){
 
 try {
         const userId = req.user._id;
-        console.log(userId,"hi from alltask")
     
         const records = await userModel.findById(userId).select("records").populate("records");
     
@@ -19,7 +18,6 @@ try {
             throw new ApiError(404,"Tasks not found")
         }
     
-        console.log(records,"check",new ApiResponse(200,records))
     
         res.status(200).json(new ApiResponse(200,"Success",records))
         return;
@@ -72,14 +70,21 @@ async function addTask(req,res){
 
 async function updateTask(req,res){
 
-    const taskId = req.query;
-    
-
-
-
-    const updatedTask = recordModele.findByIdAndUpdate(taskId,{
-
-    })
+ try {
+       const taskId = req.query;
+       const data = req.body;
+       const updatedTask = recordModele.findByIdAndUpdate(taskId,data,{ new: true });
+       if(!updatedTask){
+           throw new ApiError(400,"Error updating Record")
+       }
+       res.status(200).json(new ApiResponse(200,"Success",updateTask))
+       return
+ } catch (error) {
+    logError(error)
+    let statusCode = error.statusCode || 500
+    res.status(statusCode).json(error.message)
+    return;
+ }
 
 }
 

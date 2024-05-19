@@ -7,7 +7,7 @@ const recordRouter = new Router();
 
 recordRouter.get("/allrecords",verifyJWT,getAllTask);
 recordRouter.post("/addTask",verifyJWT,addTask);
-recordRouter.patch("/update/:taskId",verifyJWT,updateTask)
+recordRouter.put("/update/:taskId",verifyJWT,updateTask)
 recordRouter.delete("/delete/:taskId",verifyJWT,deleteTask)
 
 

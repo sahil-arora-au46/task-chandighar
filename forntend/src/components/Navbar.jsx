@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-gray-800 p-4 flex justify-between items-center">
       <div className="text-white text-lg">
-        <h3>Hello!! </h3>{userName}
+        <h3>Hello!!</h3>{userName}
       </div>
       <button
         onClick={handleAddTaskClick}
