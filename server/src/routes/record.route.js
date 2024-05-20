@@ -1,19 +1,19 @@
-const {Router} = require("express");
+const { Router } = require("express");
 const verifyJWT = require("../middleware/auth.middleware.js");
-
-const { getAllTask,addTask,updateTask,deleteTask} = require("../controller/record.controller.js")
+const { getAllTask, addTask, updateTask, deleteTask } = require("../controller/record.controller.js");
 
 const recordRouter = new Router();
 
-recordRouter.get("/allrecords",verifyJWT,getAllTask);
-recordRouter.post("/addTask",verifyJWT,addTask);
-recordRouter.put("/update/:taskId",verifyJWT,updateTask)
-recordRouter.delete("/delete/:taskId",verifyJWT,deleteTask)
+// Route to get all tasks, protected by JWT verification middleware
+recordRouter.get("/allrecords", verifyJWT, getAllTask);
 
+// Route to add a new task.
+recordRouter.post("/addTask", verifyJWT, addTask);
 
+// Route to update a task by task ID.
+recordRouter.put("/update/:taskId", verifyJWT, updateTask);
 
+// Route to delete a task by task ID.
+recordRouter.delete("/delete/:taskId", verifyJWT, deleteTask);
 
-module.exports = recordRouter ;
-
-
-
+module.exports = recordRouter;

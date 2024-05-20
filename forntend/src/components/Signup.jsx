@@ -24,7 +24,6 @@ function Signup() {
         throw new Error(responseData.message || 'Error signing up');
       }
 
-      console.log(responseData);
       setSuccess("Signup successful!");
       setError("");
       navigate("/login");

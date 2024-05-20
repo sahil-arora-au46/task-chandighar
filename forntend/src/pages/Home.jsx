@@ -40,7 +40,7 @@ function Home() {
     return (
         <div>
             <Navbar />
-           <div className='flex  flex-wrap items-start justify-between '>
+           <div className='flex  flex-wrap items-start  '>
            {tasks == null ? (
                 <div>Loading...</div>
             ) : (

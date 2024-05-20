@@ -12,7 +12,6 @@ function TaskForm() {
   const navigate=useNavigate()
 
   const onSubmit = async (data) => {
-    console.log(data);
     const record = {
       notes: data.notes,
       taskNumber: data.taskNumber,
@@ -36,11 +35,9 @@ function TaskForm() {
       const responseData = await response.json();
 
       if (!response.ok) {
-        console.log(responseData.message)
         throw new Error(responseData || 'Error adding task');
       }
 
-      console.log(responseData, "hkhefjhkashdjhfsgakjh");
       dispatch(addRecord( responseData.data ));
       navigate("/home")
      

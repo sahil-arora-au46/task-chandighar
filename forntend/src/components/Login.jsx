@@ -31,17 +31,16 @@ function Login() {
         throw new Error(responseData.message || 'Error logging in');
       }
 
-      console.log(responseData);
       dispatch(login({userData: responseData.user}))
      
 
       navigate("/home")
-      // Save token to local storage or state for future requests
+      
       
 
     } catch (err) {
       console.log('Error logging in:', err);
-      setError(err.message); // Set the error message to display it in the UI
+      setError(err.message); 
     }
   };
 

@@ -1,18 +1,18 @@
-const {Router} = require("express");
-const {registerUser,login,logout} = require("../controller/user.controller.js");
-const verifyJWT = require("../middleware/auth.middleware.js")
+const { Router } = require("express");
+const { registerUser, login, logout } = require("../controller/user.controller.js");
+const verifyJWT = require("../middleware/auth.middleware.js");
 
-const userRouter = new Router()
+const userRouter = new Router();
 
+// Route to register a new user
+userRouter.post("/register", registerUser);
 
+// Route to login a user
+userRouter.post("/login", login);
 
-userRouter.post("/register",registerUser);
-userRouter.post("/login",login);
-userRouter.post("/logout",verifyJWT,logout)
-
+// Route to logout a user, protected by JWT verification middleware
+userRouter.post("/logout", verifyJWT, logout);
 
 module.exports = {
-
     userRouter
-
-}
+};

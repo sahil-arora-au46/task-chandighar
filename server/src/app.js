@@ -1,34 +1,31 @@
-
 var express = require('express');
-
 var cookieParser = require('cookie-parser');
-
-var {userRouter} = require('./routes/user.route');
-
-const recordRouter = require("./routes/record.route")
-
+var { userRouter } = require('./routes/user.route');
+const recordRouter = require("./routes/record.route");
 
 var app = express();
-var cors = require('cors')
+var cors = require('cors');
 
+// Initialize cookie parser middleware
 app.use(cookieParser());
+
+// Set up CORS middleware to allow requests from specified origin with credentials
 app.use(cors({
     origin: 'http://localhost:5175',
-    credentials: true // This allows cookies to be included in cross-origin requests
-}))
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5175');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
-});
+    credentials: true
+}));
+
+// Enable JSON parsing for incoming requests
 app.use(express.json());
+
+// Enable URL-encoded data parsing for incoming requests
 app.use(express.urlencoded({ extended: true }));
 
+// Mount userRouter on '/user' path
 app.use('/user', userRouter);
-app.use("/records", recordRouter)
 
+// Mount recordRouter on '/records' path
+app.use("/records", recordRouter);
 
-
+// Export the app module
 module.exports = app;
